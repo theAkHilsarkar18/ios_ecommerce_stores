@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ios_ecommerce_store/screens/homescreen/view/homescreen.dart';
 
 class Basescreen extends StatefulWidget {
   const Basescreen({Key? key}) : super(key: key);
@@ -12,20 +13,20 @@ class _BasescreenState extends State<Basescreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: CupertinoPageScaffold(
-        backgroundColor: Colors.white,
-        child: Column(
-          children: [
-            CupertinoTabBar(
-              backgroundColor: Colors.white,
-              currentIndex: 0,
-              items: [
-                BottomNavigationBarItem(icon: Icon(Icons.home_outlined,color: Colors.grey.shade700),label: "Products"),
-                BottomNavigationBarItem(icon: Icon(Icons.search,color: Colors.grey.shade700),label: "Search"),
-                BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined,color: Colors.grey.shade700),label: "Cart"),
-              ],
-            ),
-            SizedBox(height: 5,),
+      child: CupertinoTabScaffold(
+        tabBuilder: (context, index) => CupertinoTabView(
+          builder: (context) {
+            return Center(
+              child: homeprovider!.screenList![index],
+            );
+          },
+        ),
+        tabBar: CupertinoTabBar(
+          backgroundColor: Colors.white,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home_outlined)),
+            BottomNavigationBarItem(icon: Icon(Icons.search)),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined)),
           ],
         ),
       ),

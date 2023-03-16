@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:ios_ecommerce_store/screens/filterscreen/view/filterscreen.dart';
+import 'package:ios_ecommerce_store/screens/homescreen/view/homescreen.dart';
 
 class Homeprovider extends ChangeNotifier
 {
@@ -16,6 +18,20 @@ class Homeprovider extends ChangeNotifier
     "assets/images/9.jpg",
     "assets/images/10.jpg",
   ];
+
+  List? screenList = [
+    Homescreen(),
+    Filterscreen(),
+    Homescreen(),
+  ];
+
+  Duration time = Duration();
+
+  void timePick()
+  {
+
+  }
+
   
 
 
