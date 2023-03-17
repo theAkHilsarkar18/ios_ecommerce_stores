@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ios_ecommerce_store/screens/cartscreen/view/cartscreen.dart';
+import 'package:ios_ecommerce_store/screens/filterscreen/view/filterscreen.dart';
 import 'package:ios_ecommerce_store/screens/homescreen/view/homescreen.dart';
 
 class Basescreen extends StatefulWidget {
@@ -14,10 +16,13 @@ class _BasescreenState extends State<Basescreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CupertinoTabScaffold(
+       controller: CupertinoTabController(
+         initialIndex: 0,
+       ),
         tabBuilder: (context, index) => CupertinoTabView(
           builder: (context) {
             return Center(
-              child: homeprovider!.screenList![index],
+              child: Homescreen(),
             );
           },
         ),
